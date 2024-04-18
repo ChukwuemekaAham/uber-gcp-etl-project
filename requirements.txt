@@ -1,0 +1,9 @@
+spark
+python3-distutils
+python3-apt
+pandas
+google-cloud
+google-cloud-bigquery
+mage-ai
+
+

@@ -1,0 +1,67 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - transform_uber_data
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_uber_data
+  retry_config: null
+  status: executed
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_uber_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - uber_bigquery_load
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: transform_uber_data
+  retry_config: null
+  status: executed
+  type: transformer
+  upstream_blocks:
+  - load_uber_data
+  uuid: transform_uber_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: uber_bigquery_load
+  retry_config: null
+  status: executed
+  type: data_exporter
+  upstream_blocks:
+  - transform_uber_data
+  uuid: uber_bigquery_load
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: null
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: example_pipeline
+notification_config: {}
+retry_config: {}
+run_pipeline_in_one_process: false
+spark_config: {}
+tags: []
+type: python
+updated_at: '2023-08-23 10:50:17'
+uuid: example_pipeline
+widgets: []
