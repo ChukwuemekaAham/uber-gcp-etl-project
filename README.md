@@ -79,12 +79,12 @@ The project architecture is designed to provide a scalable, reliable, and effici
     ```terraform apply```
 
 4. Install the required Python packages:
+
+    ```open linux.md file and follow the instructions```
+
+    ```open pyspark.md file and follow the instructions```
    
-    `open the setup.txt file and run the commands`
-
-    OR:
-
-    ```pip install -r requirements.txt```
+    ```open the setup.txt file and run the commands```
 
 5. Add Google Cloud Service Account Key to Mage io_config.yaml file
 

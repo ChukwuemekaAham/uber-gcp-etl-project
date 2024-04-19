@@ -1,14 +1,12 @@
-import pandas as pd
+from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, from_unixtime
 from pyspark.sql.types import StringType
-from pyspark.sql import join
-from pyspark.sql import select
+
 
 if 'transformer' not in globals():
     from mage_ai.data_preparation.decorators import transformer
 if 'test' not in globals():
     from mage_ai.data_preparation.decorators import test
-
 
 @transformer
 def transform(df, *args, **kwargs):
