@@ -22,9 +22,6 @@ More info about dataset can be found here:
 
 The PySpark transformation script includes the necessary PySpark functions and logic to perform the required transformations. However, it assumes that the input DataFrame `df` contains the required columns (`index`, `tpep_pickup_datetime`, `tpep_dropoff_datetime`, `passenger_count`, `trip_distance`, `RatecodeID`, `pickup_longitude`, `pickup_latitude`, `dropoff_longitude`, `dropoff_latitude`).
 
-## Architecture 
-<img src="architecture.png">
-
 ## Technology Used
 - Programming Language - Python
 
