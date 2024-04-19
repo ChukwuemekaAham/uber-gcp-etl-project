@@ -1,15 +1,29 @@
-# Uber Data Analytics | Modern Data Engineering GCP Project
+# Uber Data Analytics | Data Engineering Zoomcamp Project 2023
 
-## Introduction
+## Overview
+This data engineering project is part of the [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) and focuses on analyzing Uber taxi data. The objective is to apply the knowledge gained during the course to build a comprehensive data pipeline.
 
+## Problem Statement
 The goal of this project is to perform data analytics on Uber data using various tools and technologies, including GCP Storage, Python, Compute Instance, Mage Data Pipeline Tool, BigQuery, and Looker Studio.
 
-https://lucid.app/users/login#/login 
+**Questions to answer:**
 
-https://draw.io 
+1. Find the top ten pick up locations, based on the number of trips
+2. Find the total number of trips by passenger count
+3. Find the average fair amount by hour of the day
+
+## Dataset Used
+TLC Trip Record Data
+Yellow and green taxi trip records include fields capturing pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. 
+
+More info about dataset can be found here:
+1. Website - https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+2. Data Dictionary - https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
+
+The PySpark transformation script includes the necessary PySpark functions and logic to perform the required transformations. However, it assumes that the input DataFrame `df` contains the required columns (`index`, `tpep_pickup_datetime`, `tpep_dropoff_datetime`, `passenger_count`, `trip_distance`, `RatecodeID`, `pickup_longitude`, `pickup_latitude`, `dropoff_longitude`, `dropoff_latitude`).
 
 ## Architecture 
-<img src="architecture.jpg">
+<img src="architecture.png">
 
 ## Technology Used
 - Programming Language - Python
@@ -27,45 +41,67 @@ Modern Data Pipeine Tool - https://www.mage.ai/
 
 Contibute to this open source project - https://github.com/mage-ai/mage-ai
 
+## Data Pipeline
 
-## Dataset Used
-TLC Trip Record Data
-Yellow and green taxi trip records include fields capturing pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. 
+The data pipeline consists of three Mage flows:
 
-More info about dataset can be found here:
-1. Website - https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-2. Data Dictionary - https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
+1. **Ingest Station Status:**
+    - Queries the station status API
+    - Flattens the JSON results and saves them as a Parquet file in Google Cloud Storage every 10 minutes
+2. **Ingest Station Information:**
+    - Queries the station information API
+    - Flattens the JSON results and saves them as a Parquet file in GCS once a day
+3. **Bikeshare Reporting Pipeline:**
+    - Runs once a day and consists of multiple tasks:
+        - Create tables in BigQuery if they do not exist
+        - Start Dataproc Cluster
+        - Read Parquet files in GCS and load them into staging tables for station_status and station_information
+        - Read the staging tables and create a bike_availability table with aggregated data
+        - Stop Dataproc Cluster
 
+## Project Architecture
 
-## GOALS
+![Cloud Architecture](https://github.com/ChukwuemekaAham/uber-gcp-etl-project/blob/main/Cloud%20Architecture.png)
 
-- Find the top ten pick up locations, based on the number of trips
-- Find the total number of trips by passenger count
-- Find the average fair amount by hour of the day
+The project architecture consists of a set of interconnected components designed to handle various aspects of data ingestion, processing, storage, and analysis. The key components are as follows:
 
+- Data Ingestion: Mage is used to get the data, ensuring that the data is collected.
+- Data Storage: The data is stored in Google Cloud Storage (GCS) as csv file. GCS provides a scalable and reliable storage solution for the project.
+- Data Processing: Mage is utilized to process the data using python and Apache Spark. Enabling data processing tasks, transforming and aggregating the raw data into the uber_dataset tables.
+- Data Warehouse: Google BigQuery serves as the data warehouse for the project, storing the processed and aggregated data in the uber_dataset tables. BigQuery allows for efficient querying and analysis of the data, making it an ideal choice for this project.
+- Data Visualization: Looker is used for data visualization, enabling users to explore the data and uncover insights about uber trips and patterns. By leveraging Looker's powerful visualization capabilities, stakeholders can easily understand the results of the data analysis and make informed decisions.
+- Infrastructure as Code (IaC): Terraform is used to manage the infrastructure components of the project. This IaC approach ensures that the infrastructure is easily reproducible and can be managed in a version-controlled manner.
 
-The PySpark transformation script includes the necessary PySpark functions and logic to perform the required transformations. However, it assumes that the input DataFrame `df` contains the required columns (`index`, `tpep_pickup_datetime`, `tpep_dropoff_datetime`, `passenger_count`, `trip_distance`, `RatecodeID`, `pickup_longitude`, `pickup_latitude`, `dropoff_longitude`, `dropoff_latitude`).
+The project architecture is designed to provide a scalable, reliable, and efficient solution for ingesting, processing, storing, and analyzing Uber Trip data, ultimately enabling stakeholders to make data-driven decisions and improve the system's performance.
 
+1. Clone this repository
+2. Refresh service-account's auth-token for this session
 
-Navigate to the repo:
+    ```gcloud auth application-default login```
 
-```bash
-cd uber-gcp-etl-project
-```
+3. Terraform
+   Change to terraform directory
 
-Now, let's build the container
+     ```cd terraform_infra```
+    
+    Initialize terrform
 
-```bash
-docker compose build
-```
+    ```terraform init```
 
-Finally, start the Docker container:
+    Preview the changes to be applied:
+    ```terraform plan```
+    It will ask for your GCP Project ID and a name for your DataProc Cluster
 
-```bash
-docker compose up
-```
+    Apply the changes:
+    ```terraform apply```
 
-Now, navigate to http://localhost:6789 in your browser! Voila! You're ready to get started with the course. 
+4. Install the required Python packages:
+   
+    `open the setup.txt file and run the commands`
+
+    OR:
+
+    ```pip install -r requirements.txt```
 
 ## Assistance
 
