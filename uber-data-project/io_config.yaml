@@ -28,15 +28,15 @@ default:
   DRUID_USER: user
   # Google
   GOOGLE_SERVICE_ACC_KEY:
-    type: service_account
-    project_id: "clear-router-390022"
-    private_key_id: "4a23ec3ae717928c2093451246bee4071507797d"
-    private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDxqScayJDvfQyx\ndXO2pNkGjh6CQ+n5Hu9NXrCPb30j7V9ne5L/6E87l4H14v5L30cr1LaEdPNJOMjq\nIpTAl6l8jPPutnw9IvedXZ7szlpSyKWhck/0tH8uqOI3fl7vh/HsqVVbe7zdkD4P\nlaVj0TSMHCdiyuqK45Ox31d/vFpzxijX001xiRs1QKFD1dAVQpvWFuwd0TFzWM2N\nVgcB5mb+DIH5Ek85gZYSblK9GMi6mq3SoV08/nMAO5AQg/cQSeWDJ6T0AxzeJWZz\n6rKUQQ4ZKfVxuITyVdJTR32uxdRnxlt5xRJ/ybHgknF2EXPJOO8MtVt2MBznDjoC\nq4qvFHoVAgMBAAECggEAGQM0SjQktjkH+Y0p1SdyVBidJUgAvVl7lNM+bJYySmft\nBkG22RhzLPyVRb1BK1q4m9uIKaUOMk+3ke5S3a1E7GCNdfF64fwOy4Gva5y/Ig7k\n/9UcW/xbpplx0qMYkevM+T0cmduwlHEzzzqis/ZpHTBjzjio9oewF4rBnHXDGfTe\n85JRC4OiKyyOZoEGkKsfe4cvvdbKurcVXxeM5MLy7PH2O8mx4R7JeZRw5E5XDqzZ\nLwb1kNU21BItop+pvLcXrdQTgJ4m6xEnyv2+H49L8J8aU5dkHR49k1vYJhht+bzm\nnkaW1O4ytmyPhFiPo6PGlIyoK/eCxgrURsH98B6ZuQKBgQD6G78MboiJV28ERxZG\nqG+Lquflr7MTiP4sQ0FhD4KnJs7CeVtcZQ8l0Ajfb8befYloHjieWlJHf7LavpWZ\nul9xOdRyTBtqbINQjpD7qxKLGFgHWbeHH0SUak1kPQ7UzNWqyTRtZLdmR9vmD3BH\n6+pECYcWJ0CP91mFjye6nM/s7QKBgQD3WnbAQjNZ/X45Td+HP2qG6+C7kmTbol87\nJhk3HvUFxIHtlsHz8NSnQGifIx4tt5Wmloq+8yxZCyS3vi1WzT8s1o6xJMftkwCB\nxSz8/fq96yCZ4Qb+bY/G3Wc5cMmJGsxyQtP86qZfT6NYtcu2300hmSG7kkt3eqkn\nYptO2GbEyQKBgQDa/oCCOiaDW3Nxo2z14XYKLVNv4jBC4qjryNfuTM5x3aEc13YP\nqM1ipo2eVxkip3kxGYUp4pw4zq+kqUwElxQK6EAE9G7s+KbiWnLIajqKYH5zsTLp\ntY8vBQVOx8e8vL46FIM7ZfzQKgt5nfsKfp9Zg54s36HAbSyNrZNz6uqE4QKBgGk9\nyEDM6eRkAoyHIY/932lAewHTq633S+VytE/LkBzAGzfnaOZNlW0D7n+nBXQWJEoY\nyzerZzcLkrfK5qeD9FkzgMrGB3qBjTmplxadSU38+IYARGWEYCQQl5bM8jKvgEUt\nQdzeSaNL0wgvcVmBcOPWr4+LEyjmu4nSXpoRYMhhAoGAdr9aIASCtvO8LaNzmxEV\n235HMTUkG3qETjTYb9FPSv4UgLMGuKgh3aD+WKN36T7yGePWciEARM1foGLUKqHH\nLCQJBJxNYSEvWB2u6bEFCpNfkL8r+RgpDuEgEqZ4EmH4ITG8u6V0cBOZ7LhKfs0n\nyRa1jahiaqu5ogdoUeT8AzI=\n-----END PRIVATE KEY-----\n"
-    client_email: "uber-data-project@clear-router-390022.iam.gserviceaccount.com"
-    auth_uri: "https://accounts.google.com/o/oauth2/auth"
-    token_uri: "https://oauth2.googleapis.com/token"
-    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
-    client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/uber-data-project%40clear-router-390022.iam.gserviceaccount.com"
+    type: 
+    project_id: 
+    private_key_id: 
+    private_key:
+    client_email:
+    auth_uri: 
+    token_uri: 
+    auth_provider_x509_cert_url: 
+    client_x509_cert_url: 
   
   GOOGLE_SERVICE_ACC_KEY_FILEPATH: "/path/to/your/service/account/key.json"
   GOOGLE_LOCATION: US # Optional

@@ -4,7 +4,7 @@ locals {
 
 variable "credentials" {
   description = "My Credentials"
-  default     = "../clear-router-390022-c10e818eac2e.json"
+  default     = "/path/to/your/key.json"
 }
 
 variable "project" {

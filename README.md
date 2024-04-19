@@ -41,27 +41,10 @@ Modern Data Pipeine Tool - https://www.mage.ai/
 
 Contibute to this open source project - https://github.com/mage-ai/mage-ai
 
-## Data Pipeline
-
-The data pipeline consists of three Mage flows:
-
-1. **Ingest Station Status:**
-    - Queries the station status API
-    - Flattens the JSON results and saves them as a Parquet file in Google Cloud Storage every 10 minutes
-2. **Ingest Station Information:**
-    - Queries the station information API
-    - Flattens the JSON results and saves them as a Parquet file in GCS once a day
-3. **Bikeshare Reporting Pipeline:**
-    - Runs once a day and consists of multiple tasks:
-        - Create tables in BigQuery if they do not exist
-        - Start Dataproc Cluster
-        - Read Parquet files in GCS and load them into staging tables for station_status and station_information
-        - Read the staging tables and create a bike_availability table with aggregated data
-        - Stop Dataproc Cluster
 
 ## Project Architecture
 
-![Cloud Architecture](https://github.com/ChukwuemekaAham/uber-gcp-etl-project/blob/main/Cloud%20Architecture.png)
+![Cloud Architecture](https://github.com/ChukwuemekaAham/uber-gcp-etl-project/blob/main/architecture.png)
 
 The project architecture consists of a set of interconnected components designed to handle various aspects of data ingestion, processing, storage, and analysis. The key components are as follows:
 
@@ -102,6 +85,10 @@ The project architecture is designed to provide a scalable, reliable, and effici
     OR:
 
     ```pip install -r requirements.txt```
+
+5. Add Google Cloud Service Account Key to Mage io_config.yaml file
+
+   `GOOGLE_SERVICE_ACC_KEY_FILEPATH: "/path/to/your/service/account/key.json"`
 
 ## Assistance
 
