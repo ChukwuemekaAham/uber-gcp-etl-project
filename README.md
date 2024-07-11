@@ -1,6 +1,6 @@
 # Uber Data Analytics | Data Engineering Zoomcamp Final Project 2023
 
-![certificate.pdf](https://github.com/ChukwuemekaAham/uber-gcp-etl-project/blob/main/certificate.pdf)
+![certificate](https://github.com/ChukwuemekaAham/uber-gcp-etl-project/blob/main/certificate.pdf)
 
 ## Overview
 This data engineering project is part of the [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) and focuses on analyzing Uber taxi data. The objective is to apply the knowledge gained during the course to build a comprehensive data pipeline.
