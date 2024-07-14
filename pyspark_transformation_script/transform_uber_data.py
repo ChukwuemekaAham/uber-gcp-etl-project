@@ -1,4 +1,6 @@
-import pandas as pd
+from pyspark.conf import SparkConf
+from pyspark.sql import SparkSession
+
 from pyspark.sql.functions import col, from_unixtime
 from pyspark.sql.types import StringType
 from pyspark.sql import join
@@ -8,7 +10,6 @@ if 'transformer' not in globals():
     from mage_ai.data_preparation.decorators import transformer
 if 'test' not in globals():
     from mage_ai.data_preparation.decorators import test
-
 
 @transformer
 def transform(df, *args, **kwargs):
@@ -25,6 +26,14 @@ def transform(df, *args, **kwargs):
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
+    spark = (
+        SparkSession
+        .builder
+        .appName('uber-etl-app')
+        .getOrCreate()
+    )
+    kwargs['context']['spark'] = spark
+
     # Specify your transformation logic here
     df = df.withColumn('tpep_pickup_datetime', from_unixtime(col('tpep_pickup_datetime')))
     df = df.withColumn('tpep_dropoff_datetime', from_unixtime(col('tpep_dropoff_datetime')))
